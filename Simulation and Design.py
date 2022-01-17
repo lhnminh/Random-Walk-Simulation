@@ -36,16 +36,19 @@ def random_walk_2d(w, s):
     
     win = GraphWin("Random walk simulation",600,600)
     for i in range(w):
+        #Erasing the whole board
         Eraser = Rectangle(Point(0,0), Point(600,600))
         Eraser.setFill('White')
         Eraser.draw(win)
         
+        #Drawing the grid lines
         for i in range(600):
             if i % 50 == 0:
                 line = Line(Point(0,i), Point(600,i))
                 line.draw(win)
                 line2 = Line(Point(i,0), Point(i,600))
-                line2.draw(win)           
+                line2.draw(win)
+                
         total_dist += random_1_walk(s,win)
     dist = total_dist/w
     return dist
@@ -55,10 +58,12 @@ def random_1_walk(s,win):
     The function random_1_walk simulate 1 random walk
     witk 's' amount of steps on 'win' Graphing Window
     '''
+    #Starting from the middle
     i = Point(300,300)
     start = Circle(i, 10)
     start.draw(win)
     i2 = i.clone()
+    
     for h in range(s):
         if random() < 0.25: #MOVE UP
             i3 = i2.clone()
@@ -87,20 +92,24 @@ def random_1_walk(s,win):
             line = Line(i2,i3)
             Arrow = Polygon(i2, Point((i2.x - 10), (i2.y + 5)),\
                             Point((i2.x - 10), (i2.y - 5)))
-
+        
+        #Editing the arrow
         Arrow.setFill('Red')
         Arrow.setOutline('Red')
-
+        
         if h == (s - 1):
             end = Circle(i2, 10)
             end.draw(win)
         
+        #Editing the lines
         line.setWidth(5)
         line.setFill('Red')
         
+        #Finally drawing the lines + arrows
         Arrow.draw(win)
         line.draw(win)
         sleep(0.5)
+        
     dist = sqrt((i2.x - i.x)**2 + (i2.y - i.y)**2)
     return dist
 

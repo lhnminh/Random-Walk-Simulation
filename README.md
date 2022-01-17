@@ -3,4 +3,4 @@ Consider you are standing at a street corner, in a city where the streets are la
 
 This program simulate 'x' random walks with 'y' steps and return the average distance from the starting point from those walk. x and y are both user inputs.
 
-![Video Demo of the Simulation](Random Walk Simulation Demo.gif) / ![](Random Walk Simulation Demo.gif)
+![Video Demo of the Simulation](Random-Walk-Simulation-Demo.gif) / ![](Random-Walk-Simulation-Demo.gif)
